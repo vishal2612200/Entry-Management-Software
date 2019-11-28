@@ -132,10 +132,10 @@ def hostcheck():
     visitor_emails = vrecord.__dict__['email']
     visitor_phones = vrecord.__dict__['visitorphone']
     visitor_checkins= vrecord.__dict__['checkin']
-    host_send_email(visitor_names,visitor_emails,visitor_phones,visitor_checkins,host_email)
-    sms_mes = "Name:\t" +  visitor_names + "\nEmail:\t" + visitor_emails + "\nPhone:\t" + visitor_phones + "\nCheckin:\t" + visitor_checkins
-    sendSMS('apikey', host_phone ,'Innovaccer', sms_mes)
-        
+    #host_send_email(visitor_names,visitor_emails,visitor_phones,visitor_checkins,host_email)
+    sms_mes = "Name:" + " "+ visitor_names + "\nEmail:" + visitor_emails + "\nPhone:" + visitor_phones + "\nCheckin:" + visitor_checkins
+    resp = sendSMS('apikey', host_phone ,'Innovaccer', sms_mes)
+    print(resp)  
     return render_template("hostcheck.html")
 @app.route("/visitoremail" , methods=["GET", "POST"])
 def visitoremail():
