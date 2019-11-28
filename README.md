@@ -76,7 +76,7 @@ Backend is developed using the Python Flask with SQLAlchemy(Object Relational Ma
 
 # Output Result
 ## Host E-Mail
-![Screenshot_20191128-114620](https://user-images.githubusercontent.com/37480057/69782445-12d7e100-11d7-11ea-9c7c-8143256f702f.png)
+![Screenshot_20191128-233053](https://user-images.githubusercontent.com/37480057/69826059-81e52200-1237-11ea-8e12-0a86c5c6b051.png)
 
 ## Host SMS
 ![Screenshot_20191128-114056](https://user-images.githubusercontent.com/37480057/69782502-3d299e80-11d7-11ea-8f6c-ec2a414c29d7.png)
