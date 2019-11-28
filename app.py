@@ -90,17 +90,6 @@ def index():
 
 
 
-@app.route("/hostverify",methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        uname = request.form["uname"]
-        passw = request.form["passw"]
-        
-        login = host.query.filter_by(username=uname, password=passw).first()
-        if login is not None:
-            return redirect(url_for("index"))
-    return render_template("login.html")
-
 
 @app.route("/host", methods=["GET", "POST"])
 def hostpage():
@@ -132,10 +121,10 @@ def hostcheck():
     visitor_emails = vrecord.__dict__['email']
     visitor_phones = vrecord.__dict__['visitorphone']
     visitor_checkins= vrecord.__dict__['checkin']
-    #host_send_email(visitor_names,visitor_emails,visitor_phones,visitor_checkins,host_email)
+    host_send_email(visitor_names,visitor_emails,visitor_phones,visitor_checkins,host_email)
     sms_mes = "Name:" + " "+ visitor_names + "\nEmail:" + visitor_emails + "\nPhone:" + visitor_phones + "\nCheckin:" + visitor_checkins
     resp = sendSMS('apikey', host_phone ,'Innovaccer', sms_mes)
-    print(resp)  
+    print(resp)  # it will give balance sms
     return render_template("hostcheck.html")
 @app.route("/visitoremail" , methods=["GET", "POST"])
 def visitoremail():
@@ -175,19 +164,7 @@ def visitorinfo():
     return render_template("visitor.html")    
 
 
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    if request.method == "POST":
-        uname = request.form['uname']
-        mail = request.form['mail']
-        passw = request.form['passw']
 
-        register = host(username = uname, email = mail, userphone = passw)
-        db.session.add(register)
-        db.session.commit()
-
-        return redirect(url_for("login"))
-    return render_template("register.html")
 
 if __name__ == "__main__":
     db.create_all()
