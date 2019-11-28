@@ -56,8 +56,8 @@ def visitor_send_email(a,b,c,d,e,f):
     #t = time.localtime()
     #current_time = time.strftime("%H:%M:%S", t)   
     # message to be sent 
-    text = "Thank you Visitor for visiting us,\n Visitor Name:\t"+ a +"\n Visitor Phone:\t"+ c +"\n Check-in Time:\t"+ d+"IST"+"\n Check-out Time:\t"+ e +"\n Host Name:\t"+ f + "\n Address visited : Summergeeks by innovaccer" 
-    subject = "Visitor has just checked in"
+    text = "Thank you Visitor for visiting us,\n Visitor Name:\t"+ a +"\n Visitor Phone:\t"+ c +"\n Check-in Time:\t"+ d+"IST"+"\n Check-out Time:\t"+ e +"\n Host Name:\t"+ f + "\nAddress : Summergeeks by innovaccer" 
+    subject = "Thank you Visiting us"
     message = 'Subject: {}\n\n{}'.format(subject, text)
     # sending the mail 
     s.sendmail("innovaccersummergeeks@gmail.com", b, message) 
@@ -85,6 +85,7 @@ def sendSMS(apikey, numbers, sender, message):
 
 
 @app.route("/")
+@app.route("/index",methods=["GET","POST"])
 def index():
     return render_template("index.html")
 
