@@ -1,3 +1,8 @@
+# Publication
+Now This project has been published on freshlybuilt.com
+Here is the link:
+
+https://freshlybuilt.com/event-management-system-using-python-flask/
 # Entry-Management-Software
 This project has been developed for solving notification problem for host and visitor. It is a web application based on Python Flask with SQLAlchemy Database and Textlocal API
 
